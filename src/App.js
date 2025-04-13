@@ -8,9 +8,9 @@ import './styles.css';
 
 function App() {
   const [expenses, setExpenses] = useState([
-    { id: 1, name: 'Groceries', description: 'Weekly shopping', category: 'Food', amount: 120, date: '2023-05-15' },
-    { id: 2, name: 'Internet', description: 'Monthly bill', category: 'Utilities', amount: 60, date: '2023-05-10' },
-    { id: 3, name: 'Movie', description: 'Weekend entertainment', category: 'Entertainment', amount: 25, date: '2023-05-05' }
+    { id: 1, name: 'Onions', description: 'Weekly shopping', category: 'Food', amount: 120, date: '2023-05-15' },
+    { id: 2, name: 'Internet', description: 'Monthly bill', category: 'Utilities', amount: 1500, date: '2023-05-10' },
+    { id: 3, name: 'Movie', description: 'Weekend entertainment', category: 'Entertainment', amount: 2000, date: '2023-05-05' }
   ]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');

@@ -25,7 +25,7 @@ function ExpenseTable({ expenses, onDelete, sortConfig, requestSort }) {
                 Category {getSortIndicator('category')}
               </th>
               <th onClick={() => requestSort('amount')}>
-                Amount ($) {getSortIndicator('amount')}
+                Amount (Ksh) {getSortIndicator('amount')}
               </th>
               <th onClick={() => requestSort('date')}>
                 Date {getSortIndicator('date')}
