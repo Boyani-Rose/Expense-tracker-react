@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import ExpenseForm from './components/ExpenseForm';
-import ExpenseTable from './components/ExpenseTable';
-import SearchBar from './components/SearchBar';
-import ExpenseFilter from './components/ExpenseFilter';
-import ExpenseSummary from './components/ExpenseSummary';
+import ExpenseForm from './Components/ExpenseForm';
+import ExpenseTable from './Components/ExpenseTable';
+import SearchBar from './Components/SearchBar';
+import ExpenseFilter from './Components/ExpenseFilter';
+
 import './styles.css';
 
 function App() {
@@ -52,24 +52,34 @@ function App() {
   return (
     <div className="app-container">
       <h1>Expense Tracker</h1>
-      <div className="controls-container">
-        <ExpenseForm onSubmit={addExpense} />
-        <div className="filter-search-container">
-          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-          <ExpenseFilter 
-            categories={['All', 'Food', 'Utilities', 'Entertainment', 'Transportation']} 
-            selectedCategory={filterCategory} 
-            onCategoryChange={setFilterCategory} 
+      
+      <div className="form-and-table">
+        
+        <div className="form-container">
+          <ExpenseForm onSubmit={addExpense} />
+        </div>
+        
+        
+        <div className="table-container">
+          
+          <div className="filter-search-container">
+            <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+            <ExpenseFilter 
+              categories={['All', 'Food', 'Utilities', 'Entertainment', 'Transportation']} 
+              selectedCategory={filterCategory} 
+              onCategoryChange={setFilterCategory} 
+            />
+          </div>
+          
+          <ExpenseTable 
+            expenses={filteredExpenses} 
+            onDelete={deleteExpense} 
+            sortConfig={sortConfig}
+            requestSort={requestSort}
           />
+         
         </div>
       </div>
-      <ExpenseSummary expenses={filteredExpenses} />
-      <ExpenseTable 
-        expenses={filteredExpenses} 
-        onDelete={deleteExpense} 
-        sortConfig={sortConfig}
-        requestSort={requestSort}
-      />
     </div>
   );
 }
